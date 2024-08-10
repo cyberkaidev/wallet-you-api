@@ -9,7 +9,7 @@ export function tatum() {
         v4: process.env.TATUM_SDK_V4,
       },
     });
-  };
+  }
 
   return { init };
 }

@@ -20,5 +20,7 @@ export async function getBalanceController({
 
   const { internal_error } = errorStructureConstans;
 
-  return response.status(internal_error.status).json({ error: internal_error.code });
+  return response
+    .status(internal_error.status)
+    .json({ error: internal_error.code });
 }

@@ -11,7 +11,9 @@ export async function getTransactionsController({
   const { success, error } = await transactionsService({ publicKey });
 
   if (success) {
-    return response.status(success.status).json({ transactions: success.transactions });
+    return response
+      .status(success.status)
+      .json({ transactions: success.transactions });
   }
 
   if (error) {
@@ -20,5 +22,7 @@ export async function getTransactionsController({
 
   const { internal_error } = errorStructureConstans;
 
-  return response.status(internal_error.status).json({ error: internal_error.code });
+  return response
+    .status(internal_error.status)
+    .json({ error: internal_error.code });
 }

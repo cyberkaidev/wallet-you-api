@@ -1,6 +1,6 @@
-import { DataUserWalletRequestInterface } from '../interfaces/global.interface';
-import { tatum } from '../client/tatumSDK.client';
-import { errors } from '../helpers/errors';
+import { DataUserWalletRequestInterface } from "../interfaces/global.interface";
+import { errorStructureConstans } from "../constans/error-structure.constans";
+import { balanceService } from "../services/balance.service";
 
 export async function getBalanceController({
   request,
@@ -8,31 +8,17 @@ export async function getBalanceController({
 }: DataUserWalletRequestInterface) {
   const { publicKey } = request.query;
 
-  if (!publicKey) {
-    const { status, code } = errors.empty_key;
-    return response.status(status).json({ error: code });
-  }
+  const { success, error } = await balanceService({ publicKey });
 
-  const { address } = await tatum();
-
-  const { data, error } = await address.getBalance({
-    addresses: [publicKey],
-  });
-
-  if (error?.code == 'validation.failed') {
-    const { status, code } = errors.key_not_found;
-    return response.status(status).json({ error: code });
+  if (success) {
+    return response.status(success.status).json({ balance: success.balance });
   }
 
   if (error) {
-    const { status, code } = errors.internal_error;
-    return response.status(status).json({ error: code });
+    return response.status(error.status).json({ error: error.error });
   }
 
-  if (data[0].decimals) {
-    const number = Number(data[0].balance).toFixed(data[0].decimals);
-    return response.status(200).json({ balance: number });
-  }
+  const { internal_error } = errorStructureConstans;
 
-  return response.status(200).json({ balance: data[0].balance });
+  return response.status(internal_error.status).json({ error: internal_error.code });
 }

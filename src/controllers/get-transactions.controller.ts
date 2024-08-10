@@ -1,6 +1,6 @@
-import { DataUserWalletRequestInterface } from '../interfaces/global.interface';
-import { tatum } from '../client/tatumSDK.client';
-import { errors } from '../helpers/errors';
+import { DataUserWalletRequestInterface } from "../interfaces/global.interface";
+import { errorStructureConstans } from "../constans/error-structure.constans";
+import { transactionsService } from "../services/transactions.service";
 
 export async function getTransactionsController({
   request,
@@ -8,26 +8,17 @@ export async function getTransactionsController({
 }: DataUserWalletRequestInterface) {
   const { publicKey } = request.query;
 
-  if (!publicKey) {
-    const { status, code } = errors.empty_key;
-    return response.status(status).json({ error: code });
-  }
+  const { success, error } = await transactionsService({ publicKey });
 
-  const { address } = await tatum();
-
-  const { data, error } = await address.getTransactions({
-    address: publicKey,
-  });
-
-  if (error?.code == 'validation.failed') {
-    const { status, code } = errors.key_not_found;
-    return response.status(status).json({ error: code });
+  if (success) {
+    return response.status(success.status).json({ transactions: success.transactions });
   }
 
   if (error) {
-    const { status, code } = errors.internal_error;
-    return response.status(status).json({ error: code });
+    return response.status(error.status).json({ error: error.error });
   }
 
-  return response.status(200).json({ transactions: data });
+  const { internal_error } = errorStructureConstans;
+
+  return response.status(internal_error.status).json({ error: internal_error.code });
 }

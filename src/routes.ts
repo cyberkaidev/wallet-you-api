@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getBalanceController } from "./controllers/get-balance.controller";
-import { getTransactionsController } from "./controllers/get-transactions.controller";
+import { getBalanceController } from "./controllers/get-balance-controller";
+import { getTransactionsController } from "./controllers/get-transactions-controller";
 
 export const router = Router();
 

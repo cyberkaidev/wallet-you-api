@@ -1,9 +1,9 @@
-import { tatum } from "../client/tatum-sdk.client";
-import { errorStructureConstans } from "../constans/error-structure.constans";
+import { tatum } from "../client/tatum-sdk-client";
+import { errorStructureConstans } from "../constans/error-structure-constans";
 import {
   TransactionsService,
   TransactionsServiceProps,
-} from "../interfaces/transactions-service.interface";
+} from "../interfaces/transactions-service-interface";
 
 export async function transactionsService({
   publicKey,

@@ -1,6 +1,6 @@
-import { DataUserWalletRequestInterface } from "../interfaces/global.interface";
-import { errorStructureConstans } from "../constans/error-structure.constans";
-import { balanceService } from "../services/balance.service";
+import { DataUserWalletRequestInterface } from "../interfaces/global-interface";
+import { errorStructureConstans } from "../constans/error-structure-constans";
+import { balanceService } from "../services/balance-service";
 
 export async function getBalanceController({
   request,

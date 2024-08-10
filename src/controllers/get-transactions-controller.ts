@@ -1,6 +1,6 @@
-import { DataUserWalletRequestInterface } from "../interfaces/global.interface";
-import { errorStructureConstans } from "../constans/error-structure.constans";
-import { transactionsService } from "../services/transactions.service";
+import { DataUserWalletRequestInterface } from "../interfaces/global-interface";
+import { errorStructureConstans } from "../constans/error-structure-constans";
+import { transactionsService } from "../services/transactions-service";
 
 export async function getTransactionsController({
   request,

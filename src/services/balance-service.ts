@@ -1,9 +1,9 @@
-import { tatum } from "../client/tatum-sdk.client";
-import { errorStructureConstans } from "../constans/error-structure.constans";
+import { tatum } from "../client/tatum-sdk-client";
+import { errorStructureConstans } from "../constans/error-structure-constans";
 import {
   BalanceService,
   BalanceServiceProps,
-} from "../interfaces/balance-service.interface";
+} from "../interfaces/balance-service-interface";
 
 export async function balanceService({
   publicKey,

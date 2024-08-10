@@ -104,10 +104,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@tatumio/tatum@^4.2.32":
-  version "4.2.32"
-  resolved "https://registry.yarnpkg.com/@tatumio/tatum/-/tatum-4.2.32.tgz#7a754ee73234abb4b4518cc7ea460b0268dfc4f0"
-  integrity sha512-TgUk1MsiidcOAREaruQGSENlKjX3yqmZWbwKuIJaVrxY6d5CPlnp4PocUmZCNLQckDWQglRctLTq+T8MQDAXBg==
+"@tatumio/tatum@^4.2.38":
+  version "4.2.38"
+  resolved "https://registry.yarnpkg.com/@tatumio/tatum/-/tatum-4.2.38.tgz#774b47e0b4714162b61e9766aa43be3ea523a973"
+  integrity sha512-U5vYxJ0AXyGEbOgkCHlHB9oBVu3U5uQfwL3IyF+SYYBYO/kRkxR/7lYlYiDYdtge5l1bcOEnYKQszWWxAA+Mog==
   dependencies:
     bignumber.js "^9.1.1"
     chalk "^4.1.2"
@@ -1771,10 +1771,10 @@ negotiator@0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-nodemon@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.2.tgz#e4041ef00b930c5bdc1ab68d897a88eb7b17c8c2"
-  integrity sha512-/Ib/kloefDy+N0iRTxIUzyGcdW9lzlnca2Jsa5w73bs3npXjg+WInmiX6VY13mIb6SykkthYX/U5t0ukryGqBw==
+nodemon@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.4.tgz#c34dcd8eb46a05723ccde60cbdd25addcc8725e4"
+  integrity sha512-wjPBbFhtpJwmIeY2yP7QF+UKzPfltVGtfce1g/bB15/8vCGZj8uxD62b/b9M9/WVgme0NZudpownKN+c0plXlQ==
   dependencies:
     chokidar "^3.5.2"
     debug "^4"

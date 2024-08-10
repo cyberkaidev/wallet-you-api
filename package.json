@@ -1,6 +1,6 @@
 {
   "name": "wallet-you-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "cyberkaidev",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "private": true,
   "dependencies": {
-    "@tatumio/tatum": "^4.2.32",
+    "@tatumio/tatum": "^4.2.38",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -33,7 +33,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^17.2.0",
     "eslint-plugin-promise": "^6.1.1",
-    "nodemon": "^3.1.2",
+    "nodemon": "^3.1.4",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",

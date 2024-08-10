@@ -27,3 +27,26 @@ yarn install
 ```shell
 yarn dev
 ```
+
+### API documentation
+
+#### Returns your Bitcoin balance
+
+```http
+  GET /v1/get-balance
+```
+
+| Param      | Type   | Description                |
+|------------|--------|----------------------------|
+| publicKey* | string | Public key of your bitcoin |
+
+
+#### Returns your Bitcoin transactions
+
+```http
+  GET /v1/get-transactions
+```
+
+| Param      | Type   | Description                |
+|------------|--------|----------------------------|
+| publicKey* | string | Public key of your bitcoin |

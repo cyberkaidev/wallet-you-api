@@ -2,7 +2,11 @@
 
 A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
 
-![](https://i.imgur.com/8m89XTS.png)
+![](https://i.imgur.com/zqMgRfd.png)
+
+### Links
+
+- :art: [Design system](https://www.figma.com/board/zZdA8VEFYwlnyEqP9iWx55/Wallet-you-(API)?node-id=0-1&t=EnSjoeLCHHgAAKfi-1)
 
 ### Requirements
 

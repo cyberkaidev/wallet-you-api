@@ -2,7 +2,11 @@
 
 A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
 
-![](https://i.imgur.com/8m89XTS.png)
+![](https://i.imgur.com/zqMgRfd.png)
+
+### Links
+
+- :art: [Design system](https://www.figma.com/board/zZdA8VEFYwlnyEqP9iWx55/Wallet-you-(API)?node-id=0-1&t=EnSjoeLCHHgAAKfi-1)
 
 ### Requirements
 
@@ -27,3 +31,26 @@ yarn install
 ```shell
 yarn dev
 ```
+
+### API documentation
+
+#### Returns your Bitcoin balance
+
+```http
+  GET /v1/get-balance
+```
+
+| Param      | Type   | Description                |
+|------------|--------|----------------------------|
+| publicKey* | string | Public key of your bitcoin |
+
+
+#### Returns your Bitcoin transactions
+
+```http
+  GET /v1/get-transactions
+```
+
+| Param      | Type   | Description                |
+|------------|--------|----------------------------|
+| publicKey* | string | Public key of your bitcoin |

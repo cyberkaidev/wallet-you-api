@@ -1,8 +1,8 @@
 import "dotenv/config";
 import { TatumSDK, Network, Bitcoin } from "@tatumio/tatum";
 
-export function tatum() {
-  async function init() {
+export class TatumSDKClient {
+  async init() {
     return await TatumSDK.init<Bitcoin>({
       network: Network.BITCOIN,
       apiKey: {
@@ -10,6 +10,4 @@ export function tatum() {
       },
     });
   }
-
-  return { init };
 }

@@ -2,7 +2,7 @@
 
 A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
 
-![](https://i.imgur.com/zqMgRfd.png)
+![](https://i.imgur.com/pKOAZHr.png)
 
 ### Links
 
@@ -37,20 +37,20 @@ yarn dev
 #### Returns your Bitcoin balance
 
 ```http
-  GET /v1/get-balance
+  GET /v1/bitcoin/get-balance/YOUR-PUBLIC-KEY
 ```
 
-| Param      | Type   | Description                |
-|------------|--------|----------------------------|
-| publicKey* | string | Public key of your bitcoin |
+| Param            | Type   | Description                |
+|------------------|--------|----------------------------|
+| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
 
 
 #### Returns your Bitcoin transactions
 
 ```http
-  GET /v1/get-transactions
+  GET /v1/bitcoin/get-transactions/YOUR-PUBLIC-KEY
 ```
 
-| Param      | Type   | Description                |
-|------------|--------|----------------------------|
-| publicKey* | string | Public key of your bitcoin |
+| Param            | Type   | Description                |
+|------------------|--------|----------------------------|
+| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |

@@ -104,10 +104,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@tatumio/tatum@^4.2.38":
-  version "4.2.38"
-  resolved "https://registry.yarnpkg.com/@tatumio/tatum/-/tatum-4.2.38.tgz#774b47e0b4714162b61e9766aa43be3ea523a973"
-  integrity sha512-U5vYxJ0AXyGEbOgkCHlHB9oBVu3U5uQfwL3IyF+SYYBYO/kRkxR/7lYlYiDYdtge5l1bcOEnYKQszWWxAA+Mog==
+"@tatumio/tatum@^4.2.39":
+  version "4.2.39"
+  resolved "https://registry.yarnpkg.com/@tatumio/tatum/-/tatum-4.2.39.tgz#be08740a2abd250dddef79918904e6d4970b8d78"
+  integrity sha512-fzyUQFlVk9d/RG0JZTJzOs7NSW7Y/iz5lxcL1wT5BQl8bt2NasYsqkg6NGXrvaxs90LM4kpB5tdKglL/XqeIbQ==
   dependencies:
     bignumber.js "^9.1.1"
     chalk "^4.1.2"
@@ -1739,6 +1739,11 @@ minimist@^1.2.0, minimist@^1.2.6:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
+
+moment@^2.30.1:
+  version "2.30.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+  integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
 
 morgan@^1.10.0:
   version "1.10.0"

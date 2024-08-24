@@ -2,17 +2,17 @@ import { TatumSDKClient } from "../clients/tatum-sdk-client";
 
 export class GetBitcoinService {
   async getBalanceFromSDK(key: string) {
-    const { init } = new TatumSDKClient();
+    const { initBitcoin } = new TatumSDKClient();
 
-    const { address } = await init();
+    const { address } = await initBitcoin();
 
     return await address.getBalance({ addresses: [key] });
   }
 
   async getTransactionsFromSDK(key: string) {
-    const { init } = new TatumSDKClient();
+    const { initBitcoin } = new TatumSDKClient();
 
-    const { address } = await init();
+    const { address } = await initBitcoin();
 
     return await address.getTransactions({ address: key });
   }

@@ -1,4 +1,4 @@
-import { GetBalanceProps } from "../interfaces/get-bitcoin-interfaces";
+import { GetBalanceProps } from "../interfaces/get-bitcoin-interface";
 import { publicKeyValidation } from "../validations/public-key-validation";
 import { GetBitcoinService } from "../services/get-bitcoin-service";
 import { errorBalanceSDKValidation } from "../validations/error-balance-sdk-validation";

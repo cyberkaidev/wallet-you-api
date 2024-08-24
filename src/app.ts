@@ -10,7 +10,7 @@ import { bitcoinRoutesV1 } from "./api/v1/bitcoin-routes";
 import { stablecoinRoutesV1 } from "./api/v1/stablecoin-routes";
 import { deprecated } from "./api/deprecated/bitcoin-routes";
 
-const { internal_error } = errorConstans;
+const { INTERNAL_ERROR } = errorConstans;
 
 /**
  * Created app
@@ -42,7 +42,7 @@ app.use(
     }
 
     return response
-      .status(internal_error.statusCode)
-      .json({ message: internal_error.message });
+      .status(INTERNAL_ERROR.statusCode)
+      .json({ message: INTERNAL_ERROR.message });
   },
 );

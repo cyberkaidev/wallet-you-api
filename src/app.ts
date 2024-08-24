@@ -7,6 +7,7 @@ import logger from "morgan";
 import { AppError } from "./errors/app-error";
 import { errorConstans } from "./constans/error-constans";
 import { bitcoinRoutesV1 } from "./api/v1/bitcoin-routes";
+import { stablecoinRoutesV1 } from "./api/v1/stablecoin-routes";
 import { deprecated } from "./api/deprecated/bitcoin-routes";
 
 const { internal_error } = errorConstans;
@@ -27,6 +28,7 @@ app.use(logger("dev"));
  * Integrate endpoint at application
  */
 app.use("/v1/bitcoin", bitcoinRoutesV1);
+app.use("/v1/stablecoin", stablecoinRoutesV1);
 
 app.use("/v1", deprecated);
 

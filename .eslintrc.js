@@ -3,15 +3,25 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: ["airbnb-base", "eslint:recommended"],
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "simple-import-sort"],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
   rules: {
     "arrow-parens": "off",
     eqeqeq: "error",
     "function-paren-newline": "off",
-    indent: ["error", 4],
+    indent: [
+      "error",
+      2,
+      {
+        SwitchCase: 1,
+        ignoredNodes: ["ConditionalExpression"],
+      },
+    ],
     "linebreak-style": [2, "unix"],
     "no-console": [
       "error",
@@ -22,15 +32,21 @@ module.exports = {
     "no-duplicate-imports": "error",
     "no-extra-parens": "error",
     "no-return-await": "error",
-    "no-shadow": [
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    semi: ["error", "always"],
+    "no-multiple-empty-lines": ["error", { max: 1 }],
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        builtinGlobals: false,
-        hoist: "functions",
-        allow: [],
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
       },
     ],
-    "operator-linebreak": [2, "before", { overrides: { "?": "after" } }],
-    "import/prefer-default-export": "off",
   },
 };

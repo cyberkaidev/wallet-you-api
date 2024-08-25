@@ -1,5 +1,6 @@
 import { AddressBalance } from "@tatumio/tatum";
 import { decimalsHelper } from "./decimals-helper";
+import { formatCurrency } from "./format-currency";
 
 export function joinStablecoinBalance(addresses: AddressBalance[]) {
   const balances = { usdc: "0", usdt: "0" };
@@ -22,6 +23,9 @@ export function joinStablecoinBalance(addresses: AddressBalance[]) {
         break;
     }
   }
+
+  balances.usdc = formatCurrency(balances.usdc);
+  balances.usdt = formatCurrency(balances.usdt);
 
   return balances;
 }

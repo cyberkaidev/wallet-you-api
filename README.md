@@ -32,7 +32,7 @@ yarn install
 yarn dev
 ```
 
-### API documentation
+# Bitcoin API
 
 #### Returns your Bitcoin balance
 
@@ -40,10 +40,16 @@ yarn dev
   GET /v1/bitcoin/get-balance/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                |
-|------------------|--------|----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
+| Param            | Description          |
+|------------------|----------------------|
+| YOUR-PUBLIC-KEY* | Public key (bitcoin) |
 
+- Response (200)
+```shell
+{
+  balance: string;
+}
+```
 
 #### Returns your Bitcoin transactions
 
@@ -51,27 +57,71 @@ yarn dev
   GET /v1/bitcoin/get-transactions/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                |
-|------------------|--------|----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
+| Param            | Description          |
+|------------------|----------------------|
+| YOUR-PUBLIC-KEY* | Public key (bitcoin) |
 
-#### Returns yours stablecoins balance (USDC/USDT)
+- Response (200)
+```shell
+{
+  transactions: {
+    chain: string;
+    blockNumber: number | null;
+    timestamp: number;
+    transactionType?: "incoming" | "outgoing" | "zero-transfer";
+    hash: string;
+    address: string;
+    amount: string;
+  }[]
+}
+```
+
+# Stablecoin API
+
+#### Returns your stablecoin balance (USDC/USDT)
 
 ```http
   GET /v1/stablecoin/get-balance/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                 |
-|------------------|--------|-----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your ethereum |
+| Param            | Type   | Description           |
+|------------------|--------|-----------------------|
+| YOUR-PUBLIC-KEY* | string | Public key (ethereum) |
 
+- Response (200)
+```shell
+{
+  balance: {
+    usdc: string;
+    usdt: string;
+  }
+}
+```
 
-#### Returns your stablecoins transactions (USDC/USDT)
+#### Returns your stablecoin transactions (USDC/USDT)
 
 ```http
   GET /v1/stablecoin/get-transactions/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                 |
-|------------------|--------|-----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your ethereum |
+| Param            | Type   | Description           |
+|------------------|--------|-----------------------|
+| YOUR-PUBLIC-KEY* | string | Public key (ethereum) |
+
+- Response (200)
+```shell
+{
+  transactions: {
+    date: string;
+    items: {
+      tokenId?: string;
+      amount: string;
+      transactionSubtype?: "incoming" | "outgoing" | "zero-transfer";
+      tokenName: "USDC" | "USDT";
+      timestamp: number;
+      hours: string;
+      date: string;
+    }[]
+  }[]
+}
+```

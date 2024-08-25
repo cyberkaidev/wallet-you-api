@@ -68,7 +68,7 @@ yarn dev
     chain: string;
     blockNumber: number | null;
     timestamp: number;
-    transactionType?: "incoming" | "outgoing" | "zero-transfer";
+    transactionType: "incoming" | "outgoing";
     hash: string;
     address: string;
     amount: string;
@@ -116,7 +116,7 @@ yarn dev
     items: {
       tokenId?: string;
       amount: string;
-      transactionSubtype?: "incoming" | "outgoing" | "zero-transfer";
+      transactionSubtype: "incoming" | "outgoing";
       tokenName: "USDC" | "USDT";
       timestamp: number;
       hours: string;

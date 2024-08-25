@@ -1,7 +1,7 @@
 export interface TransactionItem {
   tokenId?: string;
   amount: string;
-  transactionSubtype?: "incoming" | "outgoing" | "zero-transfer";
+  transactionSubtype: "incoming" | "outgoing";
   tokenName: "USDC" | "USDT";
   timestamp: number;
   hours: string;

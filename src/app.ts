@@ -1,14 +1,14 @@
 import "express-async-errors";
 
-import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
+import express, { NextFunction, Request, Response } from "express";
 import logger from "morgan";
 
-import { AppError } from "./errors/app-error";
-import { errorConstans } from "./constans/error-constans";
+import { deprecated } from "./api/deprecated/bitcoin-routes";
 import { bitcoinRoutesV1 } from "./api/v1/bitcoin-routes";
 import { stablecoinRoutesV1 } from "./api/v1/stablecoin-routes";
-import { deprecated } from "./api/deprecated/bitcoin-routes";
+import { errorConstans } from "./constans/error-constans";
+import { AppError } from "./errors/app-error";
 
 const { INTERNAL_ERROR } = errorConstans;
 
@@ -36,7 +36,12 @@ app.use("/v1", deprecated);
  * Middleware error
  */
 app.use(
-  (error: Error, request: Request, response: Response, next: NextFunction) => {
+  (
+    error: Error,
+    _request: Request,
+    response: Response,
+    _next: NextFunction,
+  ) => {
     if (error instanceof AppError) {
       return response.status(error.statusCode).json({ message: error.message });
     }

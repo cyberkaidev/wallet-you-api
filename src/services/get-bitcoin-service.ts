@@ -6,7 +6,7 @@ export class GetBitcoinService {
 
     const { address } = await initBitcoin();
 
-    return await address.getBalance({ addresses: [key] });
+    return address.getBalance({ addresses: [key] });
   }
 
   async getTransactionsFromSDK(key: string) {
@@ -14,6 +14,6 @@ export class GetBitcoinService {
 
     const { address } = await initBitcoin();
 
-    return await address.getTransactions({ address: key });
+    return address.getTransactions({ address: key });
   }
 }

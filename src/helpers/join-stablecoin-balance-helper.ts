@@ -1,4 +1,5 @@
 import { AddressBalance } from "@tatumio/tatum";
+
 import { decimalsHelper } from "./decimals-helper";
 import { formatCurrency } from "./format-currency";
 

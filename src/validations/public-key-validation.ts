@@ -6,7 +6,7 @@ export async function publicKeyValidation(key?: string) {
     EMPTY_KEY: { message, statusCode },
   } = errorConstans;
 
-  if (key == undefined || key.trim().length == 0) {
+  if (key === undefined || key.trim().length === 0) {
     throw new AppError(message, statusCode);
   }
 

@@ -8,7 +8,7 @@ export class GetStablecoinService {
 
     const { address } = await initStablecoin();
 
-    return await address.getBalance({
+    return address.getBalance({
       addresses: [key],
       tokenTypes: ["fungible"],
       pageSize: 50,

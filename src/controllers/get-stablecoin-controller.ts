@@ -1,11 +1,11 @@
+import { formatStablecoinTransactionHelper } from "../helpers/format-stablecoin-transaction-helper";
+import { joinStablecoinBalance } from "../helpers/join-stablecoin-balance-helper";
+import { joinStablecoinTransaction } from "../helpers/join-stablecoin-transaction-helper";
 import { GetStablecoinProps } from "../interfaces/get-stablecoin-interface";
-import { publicKeyValidation } from "../validations/public-key-validation";
+import { GetStablecoinService } from "../services/get-stablecoin-service";
 import { errorBalanceSDKValidation } from "../validations/error-balance-sdk-validation";
 import { errorTransactionsSDKValidation } from "../validations/error-transactions-sdk-validation";
-import { GetStablecoinService } from "../services/get-stablecoin-service";
-import { joinStablecoinTransaction } from "../helpers/join-stablecoin-transaction-helper";
-import { joinStablecoinBalance } from "../helpers/join-stablecoin-balance-helper";
-import { formatStablecoinTransactionHelper } from "../helpers/format-stablecoin-transaction-helper";
+import { publicKeyValidation } from "../validations/public-key-validation";
 
 export class GetStablecoinController {
   async getBalance({ key, response }: GetStablecoinProps) {

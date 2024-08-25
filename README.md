@@ -2,7 +2,7 @@
 
 A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
 
-![](https://i.imgur.com/pKOAZHr.png)
+![](https://i.imgur.com/m7714Nz.png)
 
 ### Links
 
@@ -54,3 +54,24 @@ yarn dev
 | Param            | Type   | Description                |
 |------------------|--------|----------------------------|
 | YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
+
+#### Returns yours stablecoins balance (USDC/USDT)
+
+```http
+  GET /v1/stablecoin/get-balance/YOUR-PUBLIC-KEY
+```
+
+| Param            | Type   | Description                 |
+|------------------|--------|-----------------------------|
+| YOUR-PUBLIC-KEY* | string | Public key of your ethereum |
+
+
+#### Returns your stablecoins transactions (USDC/USDT)
+
+```http
+  GET /v1/stablecoin/get-transactions/YOUR-PUBLIC-KEY
+```
+
+| Param            | Type   | Description                 |
+|------------------|--------|-----------------------------|
+| YOUR-PUBLIC-KEY* | string | Public key of your ethereum |

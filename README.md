@@ -84,9 +84,9 @@ yarn dev
   GET /v1/stablecoin/get-balance/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description           |
-|------------------|--------|-----------------------|
-| YOUR-PUBLIC-KEY* | string | Public key (ethereum) |
+| Param            | Description           |
+|------------------|-----------------------|
+| YOUR-PUBLIC-KEY* | Public key (ethereum) |
 
 - Response (200)
 ```shell
@@ -104,9 +104,9 @@ yarn dev
   GET /v1/stablecoin/get-transactions/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description           |
-|------------------|--------|-----------------------|
-| YOUR-PUBLIC-KEY* | string | Public key (ethereum) |
+| Param            | Description           |
+|------------------|-----------------------|
+| YOUR-PUBLIC-KEY* | Public key (ethereum) |
 
 - Response (200)
 ```shell

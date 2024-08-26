@@ -1,10 +1,20 @@
 import "dotenv/config";
-import { TatumSDK, Network, Bitcoin } from "@tatumio/tatum";
+
+import { Bitcoin, Ethereum, Network, TatumSDK } from "@tatumio/tatum";
 
 export class TatumSDKClient {
-  async init() {
-    return await TatumSDK.init<Bitcoin>({
+  async initBitcoin() {
+    return TatumSDK.init<Bitcoin>({
       network: Network.BITCOIN,
+      apiKey: {
+        v4: process.env.TATUM_SDK_V4,
+      },
+    });
+  }
+
+  async initStablecoin() {
+    return TatumSDK.init<Ethereum>({
+      network: Network.ETHEREUM,
       apiKey: {
         v4: process.env.TATUM_SDK_V4,
       },

@@ -1,9 +1,9 @@
-import { GetBalanceProps } from "../interfaces/get-bitcoin-interfaces";
-import { publicKeyValidation } from "../validations/public-key-validation";
+import { decimalsHelper } from "../helpers/decimals-helper";
+import { GetBalanceProps } from "../interfaces/get-bitcoin-interface";
 import { GetBitcoinService } from "../services/get-bitcoin-service";
 import { errorBalanceSDKValidation } from "../validations/error-balance-sdk-validation";
-import { decimalsHelper } from "../helpers/decimals-helper";
 import { errorTransactionsSDKValidation } from "../validations/error-transactions-sdk-validation";
+import { publicKeyValidation } from "../validations/public-key-validation";
 
 export class GetBitcoinController {
   async getBalance({ key, response }: GetBalanceProps) {

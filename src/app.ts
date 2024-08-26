@@ -1,15 +1,16 @@
 import "express-async-errors";
 
-import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
+import express, { NextFunction, Request, Response } from "express";
 import logger from "morgan";
 
-import { AppError } from "./errors/app-error";
-import { errorConstans } from "./constans/error-constans";
-import { bitcoinRoutesV1 } from "./api/v1/bitcoin-routes";
 import { deprecated } from "./api/deprecated/bitcoin-routes";
+import { bitcoinRoutesV1 } from "./api/v1/bitcoin-routes";
+import { stablecoinRoutesV1 } from "./api/v1/stablecoin-routes";
+import { errorConstans } from "./constans/error-constans";
+import { AppError } from "./errors/app-error";
 
-const { internal_error } = errorConstans;
+const { INTERNAL_ERROR } = errorConstans;
 
 /**
  * Created app
@@ -27,6 +28,7 @@ app.use(logger("dev"));
  * Integrate endpoint at application
  */
 app.use("/v1/bitcoin", bitcoinRoutesV1);
+app.use("/v1/stablecoin", stablecoinRoutesV1);
 
 app.use("/v1", deprecated);
 
@@ -34,13 +36,18 @@ app.use("/v1", deprecated);
  * Middleware error
  */
 app.use(
-  (error: Error, request: Request, response: Response, next: NextFunction) => {
+  (
+    error: Error,
+    _request: Request,
+    response: Response,
+    _next: NextFunction,
+  ) => {
     if (error instanceof AppError) {
       return response.status(error.statusCode).json({ message: error.message });
     }
 
     return response
-      .status(internal_error.statusCode)
-      .json({ message: internal_error.message });
+      .status(INTERNAL_ERROR.statusCode)
+      .json({ message: INTERNAL_ERROR.message });
   },
 );

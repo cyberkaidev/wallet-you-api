@@ -1,4 +1,4 @@
 export interface DecimalProps {
   value: string | number;
-  decimals: number;
+  decimals?: number;
 }

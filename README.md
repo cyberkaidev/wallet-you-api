@@ -2,7 +2,7 @@
 
 A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
 
-![](https://i.imgur.com/pKOAZHr.png)
+![](https://i.imgur.com/m7714Nz.png)
 
 ### Links
 
@@ -32,7 +32,7 @@ yarn install
 yarn dev
 ```
 
-### API documentation
+# Bitcoin API
 
 #### Returns your Bitcoin balance
 
@@ -40,10 +40,16 @@ yarn dev
   GET /v1/bitcoin/get-balance/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                |
-|------------------|--------|----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
+| Param            | Description          |
+|------------------|----------------------|
+| YOUR-PUBLIC-KEY* | Public key (bitcoin) |
 
+- Response (200)
+```shell
+{
+  balance: string;
+}
+```
 
 #### Returns your Bitcoin transactions
 
@@ -51,6 +57,71 @@ yarn dev
   GET /v1/bitcoin/get-transactions/YOUR-PUBLIC-KEY
 ```
 
-| Param            | Type   | Description                |
-|------------------|--------|----------------------------|
-| YOUR-PUBLIC-KEY* | string | Public key of your bitcoin |
+| Param            | Description          |
+|------------------|----------------------|
+| YOUR-PUBLIC-KEY* | Public key (bitcoin) |
+
+- Response (200)
+```shell
+{
+  transactions: {
+    chain: string;
+    blockNumber: number | null;
+    timestamp: number;
+    transactionType: "incoming" | "outgoing";
+    hash: string;
+    address: string;
+    amount: string;
+  }[]
+}
+```
+
+# Stablecoin API
+
+#### Returns your stablecoin balance (USDC/USDT)
+
+```http
+  GET /v1/stablecoin/get-balance/YOUR-PUBLIC-KEY
+```
+
+| Param            | Description           |
+|------------------|-----------------------|
+| YOUR-PUBLIC-KEY* | Public key (ethereum) |
+
+- Response (200)
+```shell
+{
+  balance: {
+    usdc: string;
+    usdt: string;
+  }
+}
+```
+
+#### Returns your stablecoin transactions (USDC/USDT)
+
+```http
+  GET /v1/stablecoin/get-transactions/YOUR-PUBLIC-KEY
+```
+
+| Param            | Description           |
+|------------------|-----------------------|
+| YOUR-PUBLIC-KEY* | Public key (ethereum) |
+
+- Response (200)
+```shell
+{
+  transactions: {
+    date: string;
+    items: {
+      tokenId?: string;
+      amount: string;
+      transactionSubtype: "incoming" | "outgoing";
+      tokenName: "USDC" | "USDT";
+      timestamp: number;
+      hours: string;
+      date: string;
+    }[]
+  }[]
+}
+```

@@ -1,6 +1,6 @@
 # Wallet You API
 
-A RESTful API for [Wallet You](https://github.com/cyberkaidev/wallet-you)
+A RESTful API for [Wallet you](https://github.com/cyberkaidev/wallet-you) and [Bank you](https://github.com/cyberkaidev/bank-you)
 
 ![](https://i.imgur.com/m7714Nz.png)
 

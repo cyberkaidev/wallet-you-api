@@ -1,11 +1,11 @@
 import {
-  JoinStablecoinTransaction,
-  JoinStablecoinTransactionProps,
+	JoinStablecoinTransaction,
+	JoinStablecoinTransactionProps,
 } from "../interfaces/join-stablecoin-transaction-interface";
 
 export function joinStablecoinTransaction({
-  usdc,
-  usdt,
+	usdc,
+	usdt,
 }: JoinStablecoinTransactionProps): JoinStablecoinTransaction[] {
-  return [...usdc, ...usdt].sort((x, y) => x.timestamp - y.timestamp).reverse();
+	return [...usdc, ...usdt].sort((x, y) => x.timestamp - y.timestamp).reverse();
 }

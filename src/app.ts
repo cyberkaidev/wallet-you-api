@@ -36,18 +36,18 @@ app.use("/v1", deprecated);
  * Middleware error
  */
 app.use(
-  (
-    error: Error,
-    _request: Request,
-    response: Response,
-    _next: NextFunction,
-  ) => {
-    if (error instanceof AppError) {
-      return response.status(error.statusCode).json({ message: error.message });
-    }
+	(
+		error: Error,
+		_request: Request,
+		response: Response,
+		_next: NextFunction,
+	) => {
+		if (error instanceof AppError) {
+			return response.status(error.statusCode).json({ message: error.message });
+		}
 
-    return response
-      .status(INTERNAL_ERROR.statusCode)
-      .json({ message: INTERNAL_ERROR.message });
-  },
+		return response
+			.status(INTERNAL_ERROR.statusCode)
+			.json({ message: INTERNAL_ERROR.message });
+	},
 );

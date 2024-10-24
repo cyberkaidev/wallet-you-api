@@ -6,36 +6,36 @@ import { errorTransactionsSDKValidation } from "../validations/error-transaction
 import { publicKeyValidation } from "../validations/public-key-validation";
 
 export class GetBitcoinController {
-  async getBalance({ key, response }: GetBalanceProps) {
-    const { validKey } = await publicKeyValidation(key);
+	async getBalance({ key, response }: GetBalanceProps) {
+		const { validKey } = await publicKeyValidation(key);
 
-    const { getBalanceFromSDK } = new GetBitcoinService();
+		const { getBalanceFromSDK } = new GetBitcoinService();
 
-    const { data, error } = await getBalanceFromSDK(validKey);
+		const { data, error } = await getBalanceFromSDK(validKey);
 
-    await errorBalanceSDKValidation(error);
+		await errorBalanceSDKValidation(error);
 
-    if (data[0].decimals) {
-      const balance = decimalsHelper({
-        value: data[0].balance,
-        decimals: data[0].decimals,
-      });
+		if (data[0].decimals) {
+			const balance = decimalsHelper({
+				value: data[0].balance,
+				decimals: data[0].decimals,
+			});
 
-      return response.status(200).json({ balance });
-    }
+			return response.status(200).json({ balance });
+		}
 
-    return response.status(200).json({ balance: data[0].balance });
-  }
+		return response.status(200).json({ balance: data[0].balance });
+	}
 
-  async getTransactions({ key, response }: GetBalanceProps) {
-    const { validKey } = await publicKeyValidation(key);
+	async getTransactions({ key, response }: GetBalanceProps) {
+		const { validKey } = await publicKeyValidation(key);
 
-    const { getTransactionsFromSDK } = new GetBitcoinService();
+		const { getTransactionsFromSDK } = new GetBitcoinService();
 
-    const { data, error } = await getTransactionsFromSDK(validKey);
+		const { data, error } = await getTransactionsFromSDK(validKey);
 
-    await errorTransactionsSDKValidation(error);
+		await errorTransactionsSDKValidation(error);
 
-    return response.status(200).json({ transactions: data });
-  }
+		return response.status(200).json({ transactions: data });
+	}
 }

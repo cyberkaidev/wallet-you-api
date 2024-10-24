@@ -21,9 +21,9 @@ bitcoinRoutesV1.get("/get-transactions/:key", async (request, response) => {
 });
 
 bitcoinRoutesV1.get("/mock/get-balance", async (_, response) => {
-	return response.status(200).json(mockBitcoinBalance);
+	return response.status(200).json({ ...mockBitcoinBalance });
 });
 
 bitcoinRoutesV1.get("/mock/get-transactions", async (_, response) => {
-	return response.status(200).json(mockBitcoinTransactions);
+	return response.status(200).json({ ...mockBitcoinTransactions });
 });

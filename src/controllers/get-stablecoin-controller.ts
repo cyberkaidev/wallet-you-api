@@ -8,36 +8,36 @@ import { errorTransactionsSDKValidation } from "../validations/error-transaction
 import { publicKeyValidation } from "../validations/public-key-validation";
 
 export class GetStablecoinController {
-  async getBalance({ key, response }: GetStablecoinProps) {
-    const { validKey } = await publicKeyValidation(key);
+	async getBalance({ key, response }: GetStablecoinProps) {
+		const { validKey } = await publicKeyValidation(key);
 
-    const { getBalanceFromSDK } = new GetStablecoinService();
+		const { getBalanceFromSDK } = new GetStablecoinService();
 
-    const { data, error } = await getBalanceFromSDK(validKey);
+		const { data, error } = await getBalanceFromSDK(validKey);
 
-    await errorBalanceSDKValidation(error);
+		await errorBalanceSDKValidation(error);
 
-    const balances = joinStablecoinBalance(data);
+		const balances = joinStablecoinBalance(data);
 
-    return response.status(200).json({ balance: balances });
-  }
+		return response.status(200).json({ balance: balances });
+	}
 
-  async getTransactions({ key, response }: GetStablecoinProps) {
-    const { validKey } = await publicKeyValidation(key);
+	async getTransactions({ key, response }: GetStablecoinProps) {
+		const { validKey } = await publicKeyValidation(key);
 
-    const { getTransactionsFromSDK } = new GetStablecoinService();
+		const { getTransactionsFromSDK } = new GetStablecoinService();
 
-    const { usdc, usdt } = await getTransactionsFromSDK(validKey);
+		const { usdc, usdt } = await getTransactionsFromSDK(validKey);
 
-    await errorTransactionsSDKValidation(usdc.error ?? usdt.error);
+		await errorTransactionsSDKValidation(usdc.error ?? usdt.error);
 
-    const mergedTransactions = joinStablecoinTransaction({
-      usdc: usdc.data,
-      usdt: usdt.data,
-    });
+		const mergedTransactions = joinStablecoinTransaction({
+			usdc: usdc.data,
+			usdt: usdt.data,
+		});
 
-    const transactions = formatStablecoinTransactionHelper(mergedTransactions);
+		const transactions = formatStablecoinTransactionHelper(mergedTransactions);
 
-    return response.status(200).json({ transactions: transactions });
-  }
+		return response.status(200).json({ transactions: transactions });
+	}
 }

@@ -38,6 +38,7 @@ yarn dev
 
 ```http
   GET /v1/bitcoin/get-balance/YOUR-PUBLIC-KEY
+  GET /v1/bitcoin/mock/get-balance
 ```
 
 | Param            | Description          |
@@ -55,6 +56,7 @@ yarn dev
 
 ```http
   GET /v1/bitcoin/get-transactions/YOUR-PUBLIC-KEY
+  GET /v1/bitcoin/mock/get-transactions
 ```
 
 | Param            | Description          |
@@ -82,6 +84,7 @@ yarn dev
 
 ```http
   GET /v1/stablecoin/get-balance/YOUR-PUBLIC-KEY
+  GET /v1/stablecoin/mock/get-balance
 ```
 
 | Param            | Description           |
@@ -102,6 +105,7 @@ yarn dev
 
 ```http
   GET /v1/stablecoin/get-transactions/YOUR-PUBLIC-KEY
+  GET /v1/stablecoin/mock/get-transactions
 ```
 
 | Param            | Description           |
